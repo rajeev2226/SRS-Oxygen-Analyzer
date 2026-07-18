@@ -1,1 +1,120 @@
+{
+  "name": "srs-oxygen-analyzer-professional",
+  "productName": "SRS Oxygen Analyzer Professional",
+  "version": "1.0.0",
+  "description": "Professional Oxygen Analyzer Software by SRS Mechatronics Instrumentations",
+  "author": {
+    "name": "SRS Mechatronics Instrumentations",
+    "url": "https://www.srsmechatronics.com"
+  },
+  "private": true,
+  "main": "dist-electron/main.js",
+  "type": "module",
 
+  "scripts": {
+    "dev": "concurrently \"vite\" \"wait-on tcp:5173 && electron .\"",
+    "build": "tsc && vite build && electron-builder",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write ."
+  },
+
+  "dependencies": {
+
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+
+    "@mui/icons-material": "^5.15.15",
+    "@mui/material": "^5.15.15",
+
+    "@reduxjs/toolkit": "^2.2.3",
+
+    "chart.js": "^4.4.2",
+
+    "dayjs": "^1.11.10",
+
+    "framer-motion": "^11.0.28",
+
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+
+    "react-redux": "^9.1.1",
+
+    "react-router-dom": "^6.22.3",
+
+    "recharts": "^2.12.5",
+
+    "socket.io-client": "^4.7.5",
+
+    "zustand": "^4.5.2"
+  },
+
+  "devDependencies": {
+
+    "@types/node": "^20.12.7",
+
+    "@types/react": "^18.2.66",
+
+    "@types/react-dom": "^18.2.22",
+
+    "@vitejs/plugin-react": "^4.2.1",
+
+    "concurrently": "^8.2.2",
+
+    "electron": "^30.0.0",
+
+    "electron-builder": "^24.13.3",
+
+    "eslint": "^9.0.0",
+
+    "prettier": "^3.2.5",
+
+    "typescript": "^5.4.5",
+
+    "vite": "^5.2.8",
+
+    "wait-on": "^7.2.0"
+  },
+
+  "build": {
+
+    "appId": "com.srs.oxygenanalyzer",
+
+    "productName": "SRS Oxygen Analyzer Professional",
+
+    "directories": {
+      "output": "release"
+    },
+
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*"
+    ],
+
+    "win": {
+
+      "target": [
+        "nsis"
+      ],
+
+      "icon": "build/icon.ico"
+
+    },
+
+    "nsis": {
+
+      "oneClick": false,
+
+      "allowToChangeInstallationDirectory": true,
+
+      "createDesktopShortcut": true,
+
+      "createStartMenuShortcut": true,
+
+      "shortcutName": "SRS Oxygen Analyzer"
+
+    }
+
+  }
+
+}
